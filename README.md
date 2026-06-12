@@ -110,7 +110,6 @@ Route::middleware(['auth'])->group(function () {
 | Authenticated Admin Dashboard Control Management Area Route List
 |--------------------------------------------------------------------------
 */
-// Ensure you have ->name('admin.') attached to the group
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
    
     Route::get('/dashboard', [AnorraController::class, 'adminDashboard'])->name('dashboard');
