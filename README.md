@@ -6,8 +6,8 @@
 **Section:** 1
 
 **Group Members:**
-- Nik Siti Aishah Alhumaira binti Nik Syahriman - 2412928 
-- Nur Insyirah binti Shariffudin - 2413204 
+- Nur Insyirah binti Shariffudin - 2413204
+- Nik Siti Aishah Alhumaira binti Nik Syahriman - 2412928  
 - Nur Atina binti Zubaidi - 2412632 
 - Nur Izzati Atiqah Binti Abd Razak - 2418940 
 - Nurfarah Liyana binti Azahari - 2412040
