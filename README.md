@@ -133,8 +133,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 *Main Controllers Implemented are below:*
 1. AnorraController: Central controller handling all core application logic including front-end views, authentication processing, patient record management, and appointment scheduling. 
 
-- Models and Relationships 
-php // User Model
+- Models and Relationships
+  
+ // User Model
 class User extends Authenticatable { 
 use Notifiable; 
 protected $fillable = [ 'name', 'username', 'email', 'password', 'role', 'dob', 'present_address', 'permanent_address', 'city', 'postal_code', 'country' 
@@ -168,22 +169,22 @@ return $this->belongsTo(User::class);
 - Views and User Interface
 
   *Blade Templates Structure:*
-- layouts/app.blade.php - Core application frame for authenticated sessions 
-- layouts/guest.blade.php - Layout frame used for authentication and guest pages
-- layouts/navigation.blade.php - Dynamic responsive top navigation navbar
-- public/home.blade.php - Patient landing page for the Anorra platform 
-- public/about.blade.php - Informational page detailing the medical platform 
-- public/login.blade.php - Custom entry gateway form for system users 
-- public/register.blade.php - Digital enrollment form for new patients 
-- user/dashboard.blade.php - Medical portal landing for authenticated patients 
-- user/appointments.blade.php - Schedule log showing patient's historical and upcoming visits 
-- user/create_appointment.blade.php - Interactive scheduling form to book new doctor visits 
-- user/profile.blade.php - Personal details configuration panel for patients 
-- admin/dashboard.blade.php - Executive control hub for clinic administrators 
-- admin/patients.blade.php - Master directory index of all registered system patients 
-- admin/appointments.blade.php - Central queue monitoring panel for all scheduled sessions 
-- admin/add-patient.blade.php - Administration utility to register patient profiles manually 
-- profile/edit.blade.php - Central account management page with sub-form configurations 
+1. layouts/app.blade.php - Core application frame for authenticated sessions
+2. layouts/guest.blade.php - Layout frame used for authentication and guest pages
+3. layouts/navigation.blade.php - Dynamic responsive top navigation navbar
+4. public/home.blade.php - Patient landing page for the Anorra platform
+5. public/about.blade.php - Informational page detailing the medical platform
+6. public/login.blade.php - Custom entry gateway form for system users
+7. public/register.blade.php - Digital enrollment form for new patients
+8. user/dashboard.blade.php - Medical portal landing for authenticated patients
+9. user/appointments.blade.php - Schedule log showing patient's historical and upcoming visits
+10. user/create_appointment.blade.php - Interactive scheduling form to book new doctor visits
+11. user/profile.blade.php - Personal details configuration panel for patients
+12. admin/dashboard.blade.php - Executive control hub for clinic administrators
+13. admin/patients.blade.php - Master directory index of all registered system patients
+14. admin/appointments.blade.php - Central queue monitoring panel for all scheduled sessions
+15. admin/add-patient.blade.php - Administration utility to register patient profiles manually
+16. profile/edit.blade.php - Central account management page with sub-form configurations 
 
 *Design Features:*
 - Color Scheme: Clean and professional to suit the healthcare field
@@ -218,8 +219,8 @@ return $this->belongsTo(User::class);
 
 1. Clone the Repository
 
-git clone [https://github.com/](https://github.com/)[nuriinsyirah]/Anorra.git
-cd Anorra
+git clone https://github.com/nuriinsyirah/AnorraClinic.git 
+cd AnorraClinic
 
 2. Install Dependencies
 
@@ -250,11 +251,16 @@ Once the development server is running and you navigate to http://127.0.0.1:8000
 ###  Test Credentials
 To explore the role-based dashboards without creating new accounts, you can use these pre-registered credentials:
 
-Patient (User)
+Patient (User):
+
 username: ayualias
+
 password: password123
-Administrator
+
+Administrator:
+
 username: ahmadfarish
+
 password: admin123
 
 ### Patient (User) Walkthrough
@@ -265,7 +271,7 @@ password: admin123
 
 ### Administrator Walkthrough
 1. Log In: Authenticate using the admin account credentials.
-2.Admin Dashboard: Access the Admin Dashboard to view pending clinic requests and registered patient volumes.
+2. Admin Dashboard: Access the Admin Dashboard to view pending clinic requests and registered patient volumes.
 3. Approve/Deny Appointments: Navigate to the Appointments queue to instantly update the status of incoming patient requests.
 4. Manage Patients: View the patient index directory or manually add new records using the registration utility forms.
 
@@ -277,9 +283,9 @@ password: admin123
 - Admin Dashboard Calculation: We checked the statistics displayed on the admin dashboard, including Total Appointments, Pending Approvals, and Cancelled Appointments. The results were accurate and updated automatically based on the latest records stored in the database. 
 ### Browser Compatibility
 We tested the website on different web browsers to ensure a consistent user experience across all platforms. 
--Google Chrome: All pages displayed correctly, with proper layout alignment and accurate rendering of design elements such as shadows and content boxes. 
--Microsoft Edge: The website functions worked smoothly without any errors. The responsive layout also adjusted properly when the browser window was resized. 
--Apple Safari: Text formatting and alignment remained consistent across pages. In addition, doctor profile images were displayed correctly and maintained their circular shape. 
+- Google Chrome: All pages displayed correctly, with proper layout alignment and accurate rendering of design elements such as shadows and content boxes.
+- Microsoft Edge: The website functions worked smoothly without any errors. The responsive layout also adjusted properly when the browser window was resized.
+- Apple Safari: Text formatting and alignment remained consistent across pages. In addition, doctor profile images were displayed correctly and maintained their circular shape. 
 ### Performance Testing
 - Blade Page Assembly Optimization: We improved the website structure by using a master layout that is shared across multiple pages. This reduced duplicate code and helped pages load faster, with an average response time of less than 1.5 seconds on the local server. 
 - Asset Management Optimization:  We used Content Delivery Networks (CDNs) and optimized CSS utility classes to manage the website's styling. This helped reduce page loading time and prevented performance issues caused by large or unnecessary stylesheet files.
@@ -287,19 +293,24 @@ We tested the website on different web browsers to ensure a consistent user expe
 ## Challenges Faced and Solutions
 ### Challenge 1: Duplicate Page Structure and Layout Issues 
 The Problem: At the beginning of development, several view files such as index.blade.php and create.blade.php contained repeated HTML code, including the <head> and <body> sections. This caused layout conflicts, resulting in broken page structures, navigation problems, and sidebar menus that could not be clicked properly. 
+
 The Solution: To solve this issue, we created a shared layout file called patient.blade.php to store common components such as the sidebar and navigation bar. We then removed the duplicate HTML code from individual pages and used Blade template inheritance with @extends and @section to ensure a consistent layout across the system. 
+
 ### Challenge 2: Routing Errors with Nested View Folders 
 The Problem: After organizing view files into subfolders such as resources/views/user, the system could no longer locate some pages correctly. This caused routing errors and certain pages displayed 404 error messages. 
-The Solution: We updated the routing configuration in web.php to use Laravel's dot notation when referencing views. For example, view('user.dashboard') and view('user.about') were used instead of view('dashboard'). This allowed Laravel to correctly find and load the view files from their respective folders. 
+
+The Solution: We updated the routing configuration in web.php to use Laravel's dot notation when referencing views. For example, view('user.dashboard') and view('user.about') were used instead of view('dashboard'). This allowed Laravel to correctly find and load the view files from their respective folders.
+
 ### Challenge 3: Active Sidebar Highlight Not Displaying Correctly 
 The Problem: When users moved between the appointment list page and the appointment booking page, the active highlight on the sidebar disappeared. This made it difficult for users to know which section they were currently viewing. 
+
 The Solution: We modified the sidebar navigation by using Blade conditional statements and wildcard route matching, such as request()->is('appointments*'). This ensured that the appointment menu remained highlighted even when users navigated to related pages within the same section. 
 
 ## Future Enhancements
--SMS and WhatsApp Notification Integration: In the future, the system can be integrated with messaging services such as Twilio to automatically send SMS or WhatsApp notifications to patients. This will allow patients to receive appointment reminders and booking status updates whenever their appointment is confirmed, rescheduled, or cancelled. 
--Asynchronous Booking Calendar: Currently, appointments are booked using standard input fields. Future development could include an interactive calendar using FullCalendar.js, allowing patients to view available time slots in real-time and helping to prevent double bookings. 
--Secure Medical Record Management: A medical record module can be added to the admin panel, enabling clinic staff to securely store and manage patient information. This may include consultation records, medical notes, treatment history, and prescribed medications for each patient. 
--Health Data Visualization: The patient portal can be enhanced by integrating Chart.js to display health information in graphical form. This feature would allow patients to track health metrics such as blood pressure and heart rate over time, making it easier to monitor their overall health trends. 
+- SMS and WhatsApp Notification Integration: In the future, the system can be integrated with messaging services such as Twilio to automatically send SMS or WhatsApp notifications to patients. This will allow patients to receive appointment reminders and booking status updates whenever their appointment is confirmed, rescheduled, or cancelled.
+- Asynchronous Booking Calendar: Currently, appointments are booked using standard input fields. Future development could include an interactive calendar using FullCalendar.js, allowing patients to view available time slots in real-time and helping to prevent double bookings.
+- Secure Medical Record Management: A medical record module can be added to the admin panel, enabling clinic staff to securely store and manage patient information. This may include consultation records, medical notes, treatment history, and prescribed medications for each patient.
+- Health Data Visualization: The patient portal can be enhanced by integrating Chart.js to display health information in graphical form. This feature would allow patients to track health metrics such as blood pressure and heart rate over time, making it easier to monitor their overall health trends. 
 
 ## Learning Outcomes & Conclusion
 ### Technical Skills Gained
@@ -308,9 +319,9 @@ The Solution: We modified the sidebar navigation by using Blade conditional stat
 - Frontend Styling with Tailwind CSS: We improved our frontend development skills by building responsive user interfaces using Tailwind CSS. We applied Flexbox, CSS Grid, and mobile-first design principles to create a user-friendly experience.
    
 ### Soft Skills Developed
--Problem-Solving and Debugging: Throughout the project, we developed systematic debugging skills by analyzing Laravel error messages and using browser developer tools to identify and resolve issues efficiently. 
--Teamwork and Communication: We strengthened our ability to work as a team by discussing solutions, sharing responsibilities, and supporting one another when facing development challenges. 
--Technical Documentation: We improved our documentation skills by preparing project reports, recording system requirements, and explaining technical processes in a clear and structured manner.
+- Problem-Solving and Debugging: Throughout the project, we developed systematic debugging skills by analyzing Laravel error messages and using browser developer tools to identify and resolve issues efficiently.
+- Teamwork and Communication: We strengthened our ability to work as a team by discussing solutions, sharing responsibilities, and supporting one another when facing development challenges.
+- Technical Documentation: We improved our documentation skills by preparing project reports, recording system requirements, and explaining technical processes in a clear and structured manner.
 
 ### Key Achievements
 - Operational Clinic Portal: We successfully developed the Anorra Clinic Management System, which provides appointment management features for both patients and clinic administrators. 
