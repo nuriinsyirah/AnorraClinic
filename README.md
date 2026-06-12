@@ -38,6 +38,7 @@ Administrators: Clinic staff and managers who handle patient records, approve ap
 - Profile Management: Update user personal information like age, contact number, gender
 
 **Admin Features**
+
 – Admin dashboard: Overview of clinic functionality and operations including Patient volume and number of patients scheduled per day.
 - Schedule Management: Manage days(skd_day) and hours(skd_time) for specific doctors available to see the patients.
 - Doctor Roster Management: Create, update or delete numerous doctors along with their specialty type in system.
