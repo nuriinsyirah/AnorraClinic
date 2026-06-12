@@ -251,13 +251,13 @@ Once the development server is running and you navigate to http://127.0.0.1:8000
 ###  Test Credentials
 To explore the role-based dashboards without creating new accounts, you can use these pre-registered credentials:
 
-*Patient (User)*
+**Patient (User)**
 
 username: ayualias
 
 password: password123
 
-*Administrator*
+**Administrator**
 
 username: ahmadfarish
 
